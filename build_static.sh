@@ -205,7 +205,7 @@ then
   read dir </tmp/dwn
   pushd $dir
     fn=$(basename $dir | sed -e 's/\.src$//')
-    cygport libid3tag.cygport all
+    cygport $fn.cygport all
     for pkg in $(find $fn.$CPU/dist/ -iname "*.tar.xz" ! -iname "*-src.tar.xz" ! -iname "*-debuginfo*")
     do
       local-install $pkg
@@ -249,7 +249,7 @@ then
   pushd $dir
     fn=$(basename $dir | sed -e 's/\.src$//')
     sed -e 's/CYGCONF_ARGS="/CYGCONF_ARGS="\$CYGCONF_ARGS /' libjpeg-turbo.cygport > libjpeg-turbo_mod.cygport
-    cygport libjpeg-turbo_mod.cygport all
+    cygport $fn.cygport all
     rm libjpeg-turbo_mod.cygport
     for pkg in $(find $fn.$CPU/dist/ -iname "*.tar.xz" ! -iname "*-src.tar.xz" ! -iname "*-debuginfo*")
     do
@@ -264,12 +264,12 @@ then
   read dir </tmp/dwn
   pushd $dir
     fn=$(basename $dir | sed -e 's/\.src$//')
-    sed -e 's/CYGCONF_ARGS="/CYGCONF_ARGS="\$CYGCONF_ARGS /' libexif.cygport > libexif_mod.cygport
-    cygport libexif_mod.cygport prep compile install
+    sed -e 's/CYGCONF_ARGS="/CYGCONF_ARGS="\$CYGCONF_ARGS /' $fn.cygport > $fn_mod.cygport
+    cygport $fn_mod.cygport prep compile install
     # Hack to fix packaging
     tar -x -C $fn.$CPU/inst/usr/share/doc/libexif -f $fn.$CPU/src/*/doc/libexif-api.html.tar.gz
-    cygport libexif_mod.cygport package
-    rm libexif_mod.cygport
+    cygport $fn_mod.cygport package
+    rm $fn_mod.cygport
     for pkg in $(find $fn.$CPU/dist/ -iname "*.tar.xz" ! -iname "*-src.tar.xz" ! -iname "*-debuginfo*")
     do
       local-install $pkg
@@ -283,7 +283,7 @@ then
   read dir </tmp/dwn
   pushd $dir
     fn=$(basename $dir | sed -e 's/\.src$//')
-    cygport libogg.cygport all
+    cygport $fn.cygport all
     for pkg in $(find $fn.$CPU/dist/ -iname "*.tar.xz" ! -iname "*-src.tar.xz" ! -iname "*-debuginfo*")
     do
       local-install $pkg
@@ -298,7 +298,7 @@ then
   pushd $dir
     fn=$(basename $dir | sed -e 's/\.src$//')
     echo "01-autoreconf.patch" > series
-    cygport libvorbis.cygport all
+    cygport $fn.cygport all
     rm series
     for pkg in $(find $fn.$CPU/dist/ -iname "*.tar.xz" ! -iname "*-src.tar.xz" ! -iname "*-debuginfo*")
     do
@@ -313,11 +313,11 @@ then
   read dir </tmp/dwn
   pushd $dir
     fn=$(basename $dir | sed -e 's/\.src$//')
-    sed -e 's/CYGCONF_ARGS="/CFLAGS="-ggdb -O2 -pipe -Wimplicit-function-declaration -D_O_BINARY=O_BINARY"\nCYGCONF_ARGS="\$CYGCONF_ARGS /' flac.cygport > flac_mod.cygport
-    echo "01-do_not_use__fileno.patch 02-dont_remove_dash_g.patch 03-no_win_utf8_io.patch" > series
-    cygport flac_mod.cygport all
+    sed -e 's/CYGCONF_ARGS="/CFLAGS="-ggdb -O2 -pipe -Wimplicit-function-declaration -D_O_BINARY=O_BINARY"\nCYGCONF_ARGS="\$CYGCONF_ARGS /' $fn.cygport > $fn_mod.cygport
+    echo "01-do_not_use__fileno.patch 02-no_win_utf8_io.patch 03-fix_O_BINARY.patch" > series
+    cygport $fn_mod.cygport all
     rm series
-    rm flac_mod.cygport
+    rm $fn_mod.cygport
     for pkg in $(find $fn.$CPU/dist/ -iname "*.tar.xz" ! -iname "*-src.tar.xz" ! -iname "*-debuginfo*")
     do
       local-install $pkg
