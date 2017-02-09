@@ -20,3 +20,16 @@ Source based on minidlna at [sourceforge 2016-09-29 01:44:58](https://sourceforg
     1. Enter "./build.sh" or
     2. Enter "./build_static.sh" or
     3. Enter "./build_static_winprofile.sh"
+    
+#### Last test with
+
+ffmpeg-3.2.3-1
+flac-1.3.2-1
+libexif-0.6.21-1
+libid3tag-0.15.1b-10
+libjpeg-turbo-1.5.0-1
+libogg-1.3.1-1
+libvorbis-1.3.5-1
+sqlite3-3.16.2-1
+
+cygport 0.23.1
