@@ -333,7 +333,7 @@ then
   unzip $FFMPEG.src.zip -d /usr/src/$FFMPEG.src
   pushd /usr/src/$FFMPEG.src
     echo "Building $FFMPEG..."
-    cygport ffmpeg_static.cygport fetch prep compile install
+    cygport ffmpeg_static.cygport fetch all
     echo "Installing $FFMPEG..."
     for pkg in $(find $FFMPEG.$CPU/dist/ -iname "*.tar.xz" ! -iname "*-src.tar.xz" ! -iname "*-debuginfo*")
     do
