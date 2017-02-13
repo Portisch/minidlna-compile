@@ -2,7 +2,7 @@
 
 CPU=`uname -m`
 FFMPEG="ffmpeg-3.2.3-1"
-MINIDLNA="minidlna-cygwin-1"
+MINIDLNA="minidlna-1.1.6-1"
 
 # Partially borrowed from apt-cyg
 function wget {
