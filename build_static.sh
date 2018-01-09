@@ -2,7 +2,7 @@
 
 CPU=`uname -m`
 FFMPEG="ffmpeg-3.2.3-1"
-MINIDLNA="minidlna-1.1.6-1"
+MINIDLNA="minidlna-1.2.1-1"
 
 # Partially borrowed from apt-cyg
 function wget {
@@ -199,7 +199,7 @@ apt-cyg install gperf libiconv-devel libicu-devel libintl-devel \
 # Install minidlna prereqs
 export CYGCONF_ARGS="--enable-static"
 
-if [ ! -f /usr/lib/libid3tag.a ]
+if [ ! -f /lib/libid3tag.dll.a ]
 then
   install-source libid3tag-devel
   read dir </tmp/dwn
@@ -213,7 +213,7 @@ then
   popd
 fi
 
-if [ ! -f /usr/lib/libsqlite3.a ]
+if [ ! -f /lib/libsqlite3.dll.a ]
 then
   install-source libsqlite3-devel
   read dir </tmp/dwn
@@ -242,7 +242,7 @@ then
   popd
 fi
 
-if [ ! -f /usr/lib/libjpeg.a ]
+if [ ! -f /lib/libjpeg.dll.a ]
 then
   install-source libjpeg-devel
   read dir </tmp/dwn
@@ -258,7 +258,7 @@ then
   popd
 fi
 
-if [ ! -f /usr/lib/libexif.a ]
+if [ ! -f /lib/libexif.dll.a ]
 then
   install-source libexif-devel
   read dir </tmp/dwn
@@ -277,7 +277,7 @@ then
   popd
 fi
 
-if [ ! -f /usr/lib/libogg.a ]
+if [ ! -f /lib/libogg.dll.a ]
 then
   install-source libogg-devel
   read dir </tmp/dwn
@@ -291,7 +291,7 @@ then
   popd
 fi
 
-if [ ! -f /usr/lib/libvorbis.a ]
+if [ ! -f /lib/libvorbis.dll.a ]
 then
   install-source libvorbis-devel
   read dir </tmp/dwn
@@ -307,7 +307,7 @@ then
   popd
 fi
 
-if [ ! -f /usr/lib/libFLAC.a ]
+if [ ! -f /lib/libFLAC.dll.a ]
 then
   install-source flac-devel
   read dir </tmp/dwn
@@ -328,7 +328,7 @@ fi
 cd $cwd
 
 # Build ffmpeg if needed
-if [ ! -f /usr/lib/libavutil.a ]
+if [ ! -f /lib/libavutil.dll.a ]
 then
   unzip $FFMPEG.src.zip -d /usr/src/$FFMPEG.src
   pushd /usr/src/$FFMPEG.src

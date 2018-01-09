@@ -25,11 +25,11 @@ Source based on minidlna at [sourceforge 2016-09-29 01:44:58](https://sourceforg
 
 - ffmpeg-3.2.3-1
 - flac-1.3.2-1
-- libexif-0.6.21-1
+- libexif-0.6.21-3
 - libid3tag-0.15.1b-10
-- libjpeg-turbo-1.5.0-1
+- libjpeg-turbo-1.5.3-1
 - libogg-1.3.1-1
 - libvorbis-1.3.5-1
-- sqlite3-3.16.2-1
+- sqlite3-3.21.0-1
 
-- cygport 0.23.1
+- cygport 0.30.0-1

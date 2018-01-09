@@ -2,7 +2,7 @@
 
 CPU=`uname -m`
 FFMPEG="ffmpeg-3.2.3-1"
-MINIDLNA="minidlna-1.1.6-1"
+MINIDLNA="minidlna-1.2.1-1"
 
 # Partially borrowed from apt-cyg
 function local-install {
@@ -67,7 +67,7 @@ apt-cyg install libid3tag-devel libsqlite3-devel libjpeg-devel libexif-devel lib
 libvorbis-devel flac-devel libiconv-devel libintl-devel gettext-devel
 
 # Build ffmpeg if needed
-if [ ! -f /usr/lib/libavutil.a ]
+if [ ! -f /lib/libavutil.dll.a ]
 then
   unzip $FFMPEG.src.zip -d /usr/src/$FFMPEG.src
   pushd /usr/src/$FFMPEG.src
